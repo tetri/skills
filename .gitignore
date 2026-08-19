@@ -16,3 +16,9 @@ __pycache__/
 
 # Material de estudo (não versionado)
 _research/
+
+# Artefatos de instalação de agentes (skills CLI)
+.agents/
+.claude/
+agent/
+skills-lock.json
