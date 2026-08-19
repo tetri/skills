@@ -30,6 +30,23 @@ Repositório de **Agent Skills** no padrão da [Anthropic](https://platform.clau
 | [test-authoring](skills/test-authoring/) | Criação de rede de segurança: caracterização, golden master, testes de borda | Publicado |
 | [skill-creator](skills/skill-creator/) | Protocolo de criação de skills notáveis (pesquisa, gap analysis, escrita, validação) | Publicado |
 
+## Validações
+
+### Conformidade com a especificação (skills-ref)
+
+Todas as skills passam no validador oficial do padrão Agent Skills (`npx skills-ref validate <caminho>`).
+
+### Security audits (skills.sh)
+
+| Skill | Gen Agent Trust Hub | Socket | Snyk |
+| --- | --- | --- | --- |
+| [code-refactoring](https://skills.sh/tetri/skills/code-refactoring) | Pass (SAFE) | Pass | Pass (LOW) |
+| [code-review](https://skills.sh/tetri/skills/code-review) | Pass (SAFE) | Pass | Warn (MEDIUM) — [W011](https://skills.sh/tetri/skills/code-review/security/snyk) |
+| [test-authoring](https://skills.sh/tetri/skills/test-authoring) | Pass (SAFE) | Pass | Pass (LOW) |
+| [skill-creator](https://skills.sh/tetri/skills/skill-creator) | Pass (SAFE) | Pass | Pass (LOW) |
+
+> O aviso do Snyk em `code-review` (W011, "Third-party content exposure detected — indirect prompt injection risk") é uma flag genérica de scanner para skills que instruem o agente a analisar conteúdo externo (diffs e PRs de terceiros). É um risco de prompt injection inerente à atividade de revisão, não uma vulnerabilidade da skill.
+
 ## Instalação (symlink)
 
 Cada skill é uma pasta autocontida. Instale criando um link simbólico para o diretório de skills do agente.
