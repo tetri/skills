@@ -6,55 +6,23 @@
 
 Repositório de **Agent Skills** no padrão da [Anthropic](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) (pasta + `SKILL.md`), compatível com Claude Code, opencode, Cursor e outros agentes que seguem a especificação.
 
-## Estrutura
-
-```
-.
-├── skills/                 # Skills (uma pasta por skill)
-│   └── <skill-name>/
-│       ├── SKILL.md        # Metadados + instruções (< 500 linhas)
-│       ├── references/     # Docs complementares (1 nível de profundidade)
-│       ├── scripts/        # Scripts executáveis determinísticos
-│       └── assets/         # Templates e arquivos estáticos
-├── template/               # Esqueleto para criar novas skills
-├── CONTRIBUTING.md         # Regras do padrão + checklist
-└── README.md
-```
-
 ## Skills
 
-| Skill | Descrição | Status |
-| --- | --- | --- |
-| [code-refactoring](skills/code-refactoring/) | Refatoração segura com gates mecânicos de equivalência, grafo de dependências e disciplina git reversível | Publicado |
-| [code-review](skills/code-review/) | Revisão adversarial com evidências mecânicas e caça a mudanças de comportamento mascaradas | Publicado |
-| [test-authoring](skills/test-authoring/) | Criação de rede de segurança: caracterização, golden master, testes de borda | Publicado |
-| [skill-creator](skills/skill-creator/) | Protocolo de criação de skills notáveis (pesquisa, gap analysis, escrita, validação) | Publicado |
+| Skill | Descrição | skills-ref | Gen Agent Trust Hub | Socket | Snyk |
+| --- | --- | --- | --- | --- | --- |
+| [code-refactoring](skills/code-refactoring/) | Refatoração segura com gates mecânicos de equivalência, grafo de dependências e disciplina git reversível | Pass | Pass (SAFE) | Pass | Pass (LOW) |
+| [code-review](skills/code-review/) | Revisão adversarial com evidências mecânicas e caça a mudanças de comportamento mascaradas | Pass | Pass (SAFE) | Pass | Warn (MEDIUM) — [W011](https://skills.sh/tetri/skills/code-review/security/snyk) |
+| [test-authoring](skills/test-authoring/) | Criação de rede de segurança: caracterização, golden master, testes de borda | Pass | Pass (SAFE) | Pass | Pass (LOW) |
+| [skill-creator](skills/skill-creator/) | Protocolo de criação de skills notáveis (pesquisa, gap analysis, escrita, validação) | Pass | Pass (SAFE) | Pass | Pass (LOW) |
 
-## Validações
+Verificações: `skills-ref` valida a conformidade com o padrão Agent Skills; os demais são [security audits](https://skills.sh/audits) do skills.sh. O aviso do Snyk em `code-review` (W011, "Third-party content exposure detected — indirect prompt injection risk") é uma flag genérica de scanner para skills que instruem o agente a analisar conteúdo externo (diffs e PRs de terceiros) — risco inerente à atividade de revisão, não uma vulnerabilidade da skill.
 
-### Conformidade com a especificação (skills-ref)
-
-Todas as skills passam no validador oficial do padrão Agent Skills (`npx skills-ref validate <caminho>`).
-
-### Security audits (skills.sh)
-
-| Skill | Gen Agent Trust Hub | Socket | Snyk |
-| --- | --- | --- | --- |
-| [code-refactoring](https://skills.sh/tetri/skills/code-refactoring) | Pass (SAFE) | Pass | Pass (LOW) |
-| [code-review](https://skills.sh/tetri/skills/code-review) | Pass (SAFE) | Pass | Warn (MEDIUM) — [W011](https://skills.sh/tetri/skills/code-review/security/snyk) |
-| [test-authoring](https://skills.sh/tetri/skills/test-authoring) | Pass (SAFE) | Pass | Pass (LOW) |
-| [skill-creator](https://skills.sh/tetri/skills/skill-creator) | Pass (SAFE) | Pass | Pass (LOW) |
-
-> O aviso do Snyk em `code-review` (W011, "Third-party content exposure detected — indirect prompt injection risk") é uma flag genérica de scanner para skills que instruem o agente a analisar conteúdo externo (diffs e PRs de terceiros). É um risco de prompt injection inerente à atividade de revisão, não uma vulnerabilidade da skill.
-
-## Instalação (symlink)
+## Instalação
 
 Cada skill é uma pasta autocontida. Instale criando um link simbólico para o diretório de skills do agente.
 
-### Diretórios de destino
-
 - **Claude Code** — global `~/.claude/skills/`, projeto `.claude/skills/`
-- **opencode** — global `~/.config/opencode/skills/`, `~/.claude/skills/` ou `~/.agents/skills/`; projeto `.opencode/skills/`, `.claude/skills/` ou `.agents/skills/`
+- **opencode** — global `~/.claude/skills/` ou `~/.agents/skills/`; projeto `.claude/skills/` ou `.agents/skills/`
 - **Cursor** — `~/.cursor/skills/` ou `.cursor/skills/`
 
 ### Windows (PowerShell)
@@ -69,12 +37,6 @@ New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\<skill-name>"
 ```bash
 ln -s "$PWD/skills/<skill-name>" "$HOME/.claude/skills/<skill-name>"
 ```
-
-> Para instalar todas as skills de uma vez, repita o comando para cada pasta em `skills/`.
-
-## Validar uma skill
-
-Use o validador da especificação **`skills-ref`** (agentskills.io) para conferir conformidade com o padrão Agent Skills.
 
 ## Licença
 
