@@ -1,0 +1,18 @@
+# SO
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Dependências (caso algum script use Node/Python)
+node_modules/
+__pycache__/
+
+# Material de estudo (não versionado)
+_research/

@@ -1,0 +1,12 @@
+# Normaliza fim de linha por plataforma
+* text=auto
+
+# Scripts do Windows
+*.ps1 text eol=crlf
+
+# Binários não devem ser normalizados
+*.epub binary
+*.png binary
+*.jpg binary
+*.ttf binary
+*.otf binary
