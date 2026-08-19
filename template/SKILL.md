@@ -1,6 +1,8 @@
 ---
 name: my-skill-name
 description: 'Descreva o que a skill faz e quando usar, em terceira pessoa. Ex.: "Publica releases no GitHub gerando changelog e tag. Use quando o usuário quiser criar uma release."'
+metadata:
+  internal: true
 # Opcionais:
 # license: MIT
 # compatibility: Claude Code, opencode, Cursor
