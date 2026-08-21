@@ -15,6 +15,7 @@ Repositório de **Agent Skills** no padrão da [Anthropic](https://platform.clau
 | [test-authoring](skills/test-authoring/) | Criação de rede de segurança: caracterização, golden master, testes de borda | Pass | Pass (SAFE) | Pass | Pass (LOW) |
 | [skill-creator](skills/skill-creator/) | Protocolo de criação de skills notáveis (pesquisa, gap analysis, escrita, validação) | Pass | Pass (SAFE) | Pass | Pass (LOW) |
 | [amp-web-stories](skills/amp-web-stories/) | Histórias visuais full-screen (Web Stories AMP) com gate determinístico de validação e avaliação de estado da arte | Pass | Pass (SAFE) | Pass | Pass (LOW) |
+| [whatsapp-formatter](skills/whatsapp-formatter/) | Formatação nativa WhatsApp (negrito, itálico, listas, citações, código) com validação mecânica (gates) e API para agentes IA | Pass | Pass (SAFE) | Pass | Pass (LOW) |
 
 Verificações: `skills-ref` valida a conformidade com o padrão Agent Skills; os demais são [security audits](https://skills.sh/audits) do skills.sh. O aviso do Snyk em `code-review` (W011, "Third-party content exposure detected — indirect prompt injection risk") é uma flag genérica de scanner para skills que instruem o agente a analisar conteúdo externo (diffs e PRs de terceiros) — risco inerente à atividade de revisão, não uma vulnerabilidade da skill.
 

@@ -1,0 +1,23 @@
+[project]
+name = "whatsapp-formatter"
+version = "1.0.0"
+description = "Formatação nativa para mensagens WhatsApp com validação mecânica e API para agentes"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "OpenCode Skills"}]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v"
+filterwarnings = "ignore::DeprecationWarning"

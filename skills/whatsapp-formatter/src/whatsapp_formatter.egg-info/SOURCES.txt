@@ -1,0 +1,9 @@
+pyproject.toml
+src/whatsapp_formatter/__init__.py
+src/whatsapp_formatter/formatter.py
+src/whatsapp_formatter.egg-info/PKG-INFO
+src/whatsapp_formatter.egg-info/SOURCES.txt
+src/whatsapp_formatter.egg-info/dependency_links.txt
+src/whatsapp_formatter.egg-info/requires.txt
+src/whatsapp_formatter.egg-info/top_level.txt
+tests/test_formatter.py

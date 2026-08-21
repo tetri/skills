@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: whatsapp-formatter
+Version: 1.0.0
+Summary: Formatação nativa para mensagens WhatsApp com validação mecânica e API para agentes
+Author: OpenCode Skills
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"

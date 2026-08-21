@@ -1,0 +1,141 @@
+{
+  "templates": {
+    "order_confirmation": {
+      "description": "Confirmação de pedido e-commerce",
+      "template": "{bold:title}\n\n{blockquote:quote}\n\n{bold:details_title}\n{bullet:items}\n\n{italic:footer}",
+      "placeholders": {
+        "title": "✅ Pedido Confirmado!",
+        "quote": "Seu pedido #{order_id} foi recebido e está sendo processado.",
+        "details_title": "Detalhes:",
+        "items": [
+          "Produto: {inline_code:product}",
+          "Quantidade: {inline_code:quantity}",
+          "Total: {bold:total}",
+          "Entrega: {italic:delivery_eta}"
+        ],
+        "footer": "Acompanhe seu pedido em: {tracking_url}"
+      }
+    },
+    "meeting_reminder": {
+      "description": "Lembrete de reunião com pauta",
+      "template": "{bold:title}\n\n{bold:meeting_label} {italic:meeting_name}\n{bold:when_label} {monospace:datetime}\n{bold:where_label} {inline_code:location}\n\n{bold:agenda_title}\n{numbered:agenda_items}\n\n{blockquote:confirmation}",
+      "placeholders": {
+        "title": "📅 Lembrete de Reunião",
+        "meeting_label": "Reunião: ",
+        "meeting_name": "Planejamento Q3",
+        "when_label": "Quando: ",
+        "datetime": "2024-08-25 14:00",
+        "where_label": "Onde: ",
+        "location": "meet.google.com/abc-defg",
+        "agenda_title": "Pauta:",
+        "agenda_items": [
+          "Revisão de metas Q2",
+          "Definição de OKRs Q3",
+          "Alocação de recursos",
+          "Próximos passos"
+        ],
+        "confirmation": "Confirme presença respondendo *SIM* ou *NÃO*."
+      }
+    },
+    "tech_support": {
+      "description": "Instruções de suporte técnico passo a passo",
+      "template": "{bold:title}\n\n{blockquote:issue}\n\n{bold:solution_title}\n{numbered:steps}\n\n{bold:still_issues_title}\n{bullet:tips}",
+      "placeholders": {
+        "title": "🔧 Suporte Técnico",
+        "issue": "Identificamos o problema na sua conexão.",
+        "solution_title": "Solução:",
+        "steps": [
+          "Reinicie o {inline_code:device}",
+          "Aguarde {bold:wait_time}",
+          "Conecte novamente",
+          "Teste em {inline_code:test_url}"
+        ],
+        "still_issues_title": "Ainda com problemas?",
+        "tips": [
+          "Verifique cabos",
+          "Teste outro dispositivo",
+          "Contate suporte: *SUPORTE*"
+        ]
+      }
+    },
+    "status_report": {
+      "description": "Relatório de status estruturado",
+      "template": "{bold:title}\n\n{body}\n\n{bullet:details}\n\n{inline_code:code_snippet}\n\n{footer}",
+      "placeholders": {
+        "title": "📊 Relatório de Status",
+        "body": "O processamento foi concluído com sucesso.",
+        "details": [
+          "Registros processados: {inline_code:count}",
+          "Erros: {inline_code:errors}",
+          "Tempo: {inline_code:duration}"
+        ],
+        "code_snippet": "resultado = processar(lote)",
+        "footer": "Digite *AJUDA* para mais comandos"
+      }
+    },
+    "agent_response": {
+      "description": "Resposta padrão de agente IA",
+      "template": "{bold:title}\n\n{body}\n\n{bold:details_title}\n{bullet:details}\n\n{footer}",
+      "placeholders": {
+        "title": "Resposta do Sistema",
+        "body": "Sua solicitação foi processada.",
+        "details_title": "Detalhes:",
+        "details": [
+          "Item 1",
+          "Item 2"
+        ],
+        "footer": "Precisa de mais ajuda? Digite *AJUDA*"
+      }
+    },
+    "welcome_message": {
+      "description": "Mensagem de boas-vindas para novos usuários",
+      "template": "{bold:welcome}\n\n{blockquote:quote}\n\n{bold:what_you_can_do}\n{bullet:features}\n\n{italic:help_hint}",
+      "placeholders": {
+        "welcome": "🎉 Bem-vindo à Nossa Empresa!",
+        "quote": "Estamos felizes em ter você conosco.",
+        "what_you_can_do": "O que você pode fazer:",
+        "features": [
+          "Acessar sua conta",
+          "Configurar preferências",
+          "Entrar em contato com suporte"
+        ],
+        "help_hint": "Digite *AJUDA* para ver comandos disponíveis."
+      }
+    },
+    "error_message": {
+      "description": "Mensagem de erro padronizada",
+      "template": "{bold:error_title}\n\n{message}\n\n{footer}",
+      "placeholders": {
+        "error_title": "❌ Erro",
+        "message": "Ocorreu um erro inesperado. Tente novamente.",
+        "footer": "Se o problema persistir, digite *SUPORTE*"
+      }
+    },
+    "simple_bold_italic": {
+      "description": "Combinação simples negrito + itálico",
+      "template": "{combine:text:styles}",
+      "placeholders": {
+        "text": "Texto importante",
+        "styles": ["bold", "italic"]
+      }
+    },
+    "code_instruction": {
+      "description": "Instrução com código embutido",
+      "template": "{bold:title}\n{numbered:steps}",
+      "placeholders": {
+        "title": "🔧 Instruções",
+        "steps": [
+          "Execute {inline_code:cmd1}",
+          "Rode {inline_code:cmd2}",
+          "Verifique {monospace:path}"
+        ]
+      }
+    }
+  },
+  "usage_notes": {
+    "placeholder_syntax": "Use {bold:key}, {italic:key}, {strikethrough:key}, {monospace:key}, {code:key}, {bullet:key}, {numbered:key}, {blockquote:key}, {combine:text:styles}",
+    "combine_styles": "Para {combine:text:styles}, styles deve ser array: [\"bold\", \"italic\"]",
+    "lists": "Para {bullet:key} e {numbered:key}, o valor deve ser array de strings",
+    "escaping": "Em JSON, escape aspas duplas e barras invertidas"
+  }
+}
